@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BandAye</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div id="member_nav">
+    <% if member_signed_in? %>
+        Signed in as <%= current_member.email %>.
+        <%= link_to 'Sign out', destroy_member_session_path, method: :delete %>
+    <% else %>
+        <%= link_to 'Register', new_member_registration_path %> or <%= link_to 'Sign in', new_member_session_path %>
+    <% end %>
+</div>
+    <%= yield %>
+  </body>
+</html>
