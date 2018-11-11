@@ -1,0 +1,48 @@
+<%= form_with(model: gig, local: true) do |form| %>
+  <% if gig.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
+
+      <ul>
+      <% gig.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :where %>
+    <%= form.text_field :where %>
+  </div>
+
+  <div class="field">
+    <%= form.label :when %>
+    <%= form.datetime_select :when %>
+  </div>
+
+  <div class="field">
+    <%= form.label :band_contact %>
+    <% options = options_from_collection_for_select(@gig_admins, 'id', 'first_name') %>
+    <%= form.select :all_val,  options %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_contact %>
+    <%= form.text_field :event_contact %>
+  </div>
+
+  <div class="field">
+    <%= form.label :confirmed %>
+    <%= form.check_box :confirmed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

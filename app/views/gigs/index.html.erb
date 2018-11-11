@@ -1,0 +1,38 @@
+
+<div class="container-fluid">
+<h1>Gigs</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Where</th>
+      <th scope="col">When</th>
+      <th scope="col">Band contact</th>
+      <th scope="col">Event contact</th>
+      <th scope="col">Confirmed</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gigs.each do |gig| %>
+      <tr>
+        <th scope="row"><%= gig.title %></th>
+        <td><%= gig.where %></td>
+        <td><%= gig.when %></td>
+        <td><%= gig.band_contact %></td>
+        <td><%= gig.event_contact %></td>
+        <td><%= gig.confirmed %></td>
+        <td><%= link_to 'Show', gig %></td>
+        <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
+        <td><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gig', new_gig_path %>
+</div>

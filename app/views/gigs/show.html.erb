@@ -1,0 +1,36 @@
+<% breadcrumb :gig, @gig %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gig.title %>
+</p>
+
+<p>
+  <strong>Where:</strong>
+  <%= @gig.where %>
+</p>
+
+<p>
+  <strong>When:</strong>
+  <%= @gig.when %>
+</p>
+
+<p>
+  <strong>Band contact:</strong>
+  <%= @gig.band_contact %>
+</p>
+
+<p>
+  <strong>Event contact:</strong>
+  <%= @gig.event_contact %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @gig.confirmed %>
+</p>
+
+<%= link_to 'Edit', edit_gig_path(@gig) %> |
+<%= link_to 'Back', gigs_path %>

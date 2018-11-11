@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BandAye</title>
+    <title>Band,Aye?</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <div id="member_nav">
-    <% if member_signed_in? %>
-        Signed in as <%= current_member.email %>.
-        <%= link_to 'Sign out', destroy_member_session_path, method: :delete %>
-    <% else %>
-        <%= link_to 'Register', new_member_registration_path %> or <%= link_to 'Sign in', new_member_session_path %>
+    <div class="container-fluid">
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">
+        Band, Aye?
+      </a>
+          <span class="navbar-text">
+          <% if member_signed_in? %>
+              Signed in as <%= current_member.email %>.
+              <%= link_to 'Sign out', destroy_member_session_path, method: :delete %>
+          <% else %>
+              <%= link_to 'Register', new_member_registration_path %> or <%= link_to 'Sign in', new_member_session_path %>
+          <% end %>
+          </span>
+    </nav>
+    <% if flash[:notice] %>
+      <p class="alert alert-secondary" role="alert"><%= notice %></p>
     <% end %>
-</div>
-    <%= yield %>
+    <% if flash[:alert] %>
+      <p class="alert alert-primary" role="alert" class="alert"><%= alert %></p>
+    <% end %>
+    
+    <div class="row">
+      <%= yield %>
+    </div>
+  </div>
   </body>
 </html>

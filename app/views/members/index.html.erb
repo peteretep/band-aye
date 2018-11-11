@@ -2,4 +2,6 @@
 <% @members = Member.all %>
 <% @members.each do |member| %>
   <%= member.email %><br/>
+  <%= member.full_name %><br/>
+  <%= member.admin %>
 <% end %>

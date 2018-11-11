@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_112015) do
+ActiveRecord::Schema.define(version: 2018_11_11_211007) do
+
+  create_table "gigs", force: :cascade do |t|
+    t.string "title"
+    t.string "where"
+    t.datetime "when"
+    t.string "band_contact"
+    t.string "event_contact"
+    t.boolean "confirmed"
+    t.integer "gig_admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gig_admin_id"], name: "index_gigs_on_gig_admin_id"
+  end
+
+  create_table "gigs_members", id: false, force: :cascade do |t|
+    t.integer "gig_id", null: false
+    t.integer "member_id", null: false
+    t.index ["gig_id", "member_id"], name: "index_gigs_members_on_gig_id_and_member_id"
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
+    t.string "family"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +49,9 @@ ActiveRecord::Schema.define(version: 2018_11_11_112015) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
+    t.boolean "admin", default: false
+    t.boolean "gig_admin", default: false
+    t.boolean "ordinary_member", default: true
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end

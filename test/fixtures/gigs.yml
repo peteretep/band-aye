@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  where: MyString
+  when: 2018-11-11 12:35:58
+  band_contact: MyString
+  event_contact: MyString
+  confirmed: false
+
+two:
+  title: MyString
+  where: MyString
+  when: 2018-11-11 12:35:58
+  band_contact: MyString
+  event_contact: MyString
+  confirmed: false
