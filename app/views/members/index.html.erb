@@ -1,7 +1,17 @@
-<h1>Members#index</h1>
-<% @members = Member.all %>
+<h1>Members</h1>
+
+<table class="table">
+<tr>
+  <th>Email</th>
+  <th>Name</th>
+  <th>Instrument</th>
+  <th> </th>
 <% @members.each do |member| %>
-  <%= member.email %><br/>
-  <%= member.full_name %><br/>
-  <%= member.admin %>
+  <tr>
+    <td><%= member.email %></td>
+    <td><%= member.full_name %></td>
+    <td><%=  %></td>    
+    <td><%= member.admin_role %></td>
 <% end %>
+
+</table>

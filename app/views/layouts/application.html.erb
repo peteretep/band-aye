@@ -13,30 +13,46 @@
 
   <body>
     <div class="container-fluid">
-    <!-- Image and text -->
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">
-        Band, Aye?
-      </a>
-          <span class="navbar-text">
-          <% if member_signed_in? %>
-              Signed in as <%= current_member.email %>.
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Band, Aye?</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/gigs">Gigs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/members">Members</a>
+            </li>
+          </ul>
+          <div class="navbar-text my-2 my-lg-0">
+            <% if member_signed_in? %>
+              Hi <%= current_member.first_name %>!  
               <%= link_to 'Sign out', destroy_member_session_path, method: :delete %>
-          <% else %>
+            <% else %>
               <%= link_to 'Register', new_member_registration_path %> or <%= link_to 'Sign in', new_member_session_path %>
           <% end %>
-          </span>
-    </nav>
-    <% if flash[:notice] %>
-      <p class="alert alert-secondary" role="alert"><%= notice %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p class="alert alert-primary" role="alert" class="alert"><%= alert %></p>
-    <% end %>
+          </div>
+        </div>
+      </nav>
+
+
+      <% if flash[:notice] %>
+        <p class="alert alert-secondary" role="alert"><%= notice %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert alert-primary" role="alert" class="alert"><%= alert %></p>
+      <% end %>
     
-    <div class="row">
-      <%= yield %>
+      <div class="row">
+        <div class="container-fluid">
+        <%= yield %>
+        </div>
+      </div>
     </div>
-  </div>
   </body>
 </html>
