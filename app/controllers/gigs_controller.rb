@@ -21,6 +21,7 @@ class GigsController < ApplicationController
 
   # GET /gigs/1/edit
   def edit
+    @gig_admins = Member.where(gig_admin: true)
   end
 
   # POST /gigs

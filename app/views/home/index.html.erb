@@ -3,6 +3,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
  <div class="navbar-text"> Gigs You've Signed Up To </div>
 </nav>
+<% @gigs_signed_up_to.each do |gig| %>
+<%= gig.title %>
+<% end %>
 </div>
 
 <div class="col-sm">
