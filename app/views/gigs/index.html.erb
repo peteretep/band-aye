@@ -22,6 +22,9 @@
         <td><%= gig.gig_admin.first_name %></td>
         <td><%= gig.event_contact %></td>
         <td><%= gig.confirmed %></td>
+        <td><input class="going-checkbox" id="checkbox-<% gig.id %>%" type="checkbox" checked ></td>
+
+        <%# <td><input id="going_checkbox" type="checkbox" checked data-toggle="toggle" data-on="Going" data-off="Not Going" data-onstyle="success" data-offstyle="danger"></td> %>
         <td><%= link_to 'Show', gig %></td>
         <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
         <td><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %></td>

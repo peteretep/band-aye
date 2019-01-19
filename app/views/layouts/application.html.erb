@@ -31,7 +31,7 @@
           </ul>
           <div class="navbar-text my-2 my-lg-0">
             <% if member_signed_in? %>
-              Hi <%= current_member.first_name %>!  
+              Hi <%= current_member.first_name %>!
               <%= link_to 'Sign out', destroy_member_session_path, method: :delete %>
             <% else %>
               <%= link_to 'Register', new_member_registration_path %> or <%= link_to 'Sign in', new_member_session_path %>
@@ -47,7 +47,7 @@
       <% if flash[:alert] %>
         <p class="alert alert-primary" role="alert" class="alert"><%= alert %></p>
       <% end %>
-    
+
       <div class="row">
         <div class="container-fluid">
         <%= yield %>

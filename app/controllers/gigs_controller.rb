@@ -7,12 +7,12 @@ class GigsController < ApplicationController
   def index
     @gigs = Gig.all
   end
-  
+
   # GET /gigs/1
   # GET /gigs/1.json
   def show
   end
-  
+
   # GET /gigs/new
   def new
     @gig_admins = Member.where(gig_admin: true)
@@ -29,6 +29,7 @@ class GigsController < ApplicationController
   def create
     @gig = Gig.new(gig_params)
 
+    @gig.gig_admin = Member.find(gig_params[:gig_admin_id])
     respond_to do |format|
       if @gig.save
         format.html { redirect_to @gig, notice: 'Gig was successfully created.' }
@@ -72,6 +73,6 @@ class GigsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gig_params
-      params.require(:gig).permit(:title, :where, :when, :band_contact, :event_contact, :confirmed)
+      params.require(:gig).permit(:title, :where, :when, :band_contact, :gig_admin_id, :confirmed)
     end
 end

@@ -15,6 +15,11 @@ class Member < ApplicationRecord
     return 'Gig Admin' if gig_admin?
   end
 
+  def instrument_list
+    instruments.map { |i| i.name }
+  end
+
+
 
   def full_name
     [first_name, last_name].join(' ')

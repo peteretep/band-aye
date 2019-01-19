@@ -27,9 +27,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :band_contact %>
+    <%= form.label :gig_admin %>
     <% options = options_from_collection_for_select(@gig_admins, 'id', 'first_name') %>
-    <%= form.select :all_val,  options %>
+    <%= form.select :gig_admin_id,  options %>
   </div>
 
   <div class="field">
