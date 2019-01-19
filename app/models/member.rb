@@ -6,9 +6,10 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :gigs
+  has_and_belongs_to_many :instruments
 
   has_and_belongs_to_many :gigs
-  
+
   def admin_role
     return 'Admin' if admin?
     return 'Gig Admin' if gig_admin?
