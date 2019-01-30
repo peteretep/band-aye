@@ -23,8 +23,8 @@
         <td><%= gig.event_contact %></td>
         <td><%= gig.confirmed %></td>
         <td><%= link_to 'Show', gig %></td>
-        <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
-        <td><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :edit, :gigs %><%= link_to 'Edit', edit_gig_path(gig) %> <% end %></td>
+        <td><% if can? :destroy, :gigs %><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>

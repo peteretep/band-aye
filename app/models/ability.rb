@@ -8,7 +8,7 @@ class Ability
     elsif member.gig_admin?
       can :manage, :gigs
     else
-      can :manage, :gigs
+      can :signup, Gig
       can :read, :all
     end
     # Define abilities for the passed in user here. For example:

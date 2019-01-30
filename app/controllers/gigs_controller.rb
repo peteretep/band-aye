@@ -29,7 +29,6 @@ class GigsController < ApplicationController
   # POST /gigs.json
   def create
     @gig = Gig.new(gig_params)
-
     @gig.gig_admin = Member.find(gig_params[:gig_admin_id])
     respond_to do |format|
       if @gig.save
@@ -67,22 +66,23 @@ class GigsController < ApplicationController
   end
 
   def signup
-    byebug
     @gig.players << @current_member unless @gig.players.include? @current_member
     respond_to do |format|
       format.html { redirect_to @gig, notice: 'Thanks for signing up!' }
       format.json { render :show, status: :ok, location: @gig }
     end
   end
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_gig
-      @gig = Gig.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def gig_params
-      params.require(:gig).permit(:title, :where, :when, :band_contact,
-                                  :gig_admin_id, :confirmed, :signup)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_gig
+    @gig = Gig.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def gig_params
+    params.require(:gig).permit(:title, :where, :when, :band_contact,
+                                :gig_admin_id, :confirmed, :signup)
+  end
 end

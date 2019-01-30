@@ -44,5 +44,5 @@
 </p>
 
 <%= link_to 'Signup', gig_signup_path, id: "gig_signup"  %> |
-<%= link_to 'Edit', edit_gig_path(@gig) %> |
+<% if can? :edit, :gigs %><%= link_to 'Edit', edit_gig_path(@gig) %> |<% end %>
 <%= link_to 'Back', gigs_path %>
