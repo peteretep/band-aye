@@ -30,5 +30,19 @@
   <%= @gig.confirmed %>
 </p>
 
+<p>
+<strong>Trumpeters:</strong>
+<% @gig.trumpet_players.each do |player| %>
+<%= player.first_name %>
+<% end %>
+</p>
+<p>
+<strong>Tenor Saxes:</strong>
+<% @gig.tenor_sax_players.each do |player| %>
+<%= player.first_name %>
+<% end %>
+</p>
+
+<%= link_to 'Signup', gig_signup_path, id: "gig_signup"  %> |
 <%= link_to 'Edit', edit_gig_path(@gig) %> |
 <%= link_to 'Back', gigs_path %>

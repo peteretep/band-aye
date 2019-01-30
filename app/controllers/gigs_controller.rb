@@ -1,6 +1,6 @@
 class GigsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_gig, only: [:show, :edit, :update, :destroy]
+  before_action :set_gig, only: [:show, :edit, :update, :destroy, :signup]
 
   # GET /gigs
   # GET /gigs.json
@@ -11,6 +11,7 @@ class GigsController < ApplicationController
   # GET /gigs/1
   # GET /gigs/1.json
   def show
+    # byebug
   end
 
   # GET /gigs/new
@@ -65,6 +66,14 @@ class GigsController < ApplicationController
     end
   end
 
+  def signup
+    byebug
+    @gig.players << @current_member unless @gig.players.include? @current_member
+    respond_to do |format|
+      format.html { redirect_to @gig, notice: 'Thanks for signing up!' }
+      format.json { render :show, status: :ok, location: @gig }
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gig
@@ -73,6 +82,7 @@ class GigsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gig_params
-      params.require(:gig).permit(:title, :where, :when, :band_contact, :gig_admin_id, :confirmed)
+      params.require(:gig).permit(:title, :where, :when, :band_contact,
+                                  :gig_admin_id, :confirmed, :signup)
     end
 end
