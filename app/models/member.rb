@@ -16,11 +16,7 @@ class Member < ApplicationRecord
   end
 
   def instrument_list
-    insts = []
-    instruments.each do |i|
-      insts << i.name
-    end
-    insts.to_sentence
+    instruments.map { |i| i.name }
   end
 
 

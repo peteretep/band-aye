@@ -1,4 +1,4 @@
-<h1 class="title">Gigs</h1>
+<h1>Gigs</h1>
 
 <table class="table">
   <thead>
@@ -24,14 +24,12 @@
         <td><%= gig.event_contact %></td>
         <td><%= gig.confirmed %></td>
         <% if gig.players.include? current_member %>
-          <td class="is-success">Yes!</td>
+        <td class="is-success">Yes!</td>
         <% else %>
-          <td class="is-danger">No </td>
+        <td class="is-danger">No</td>
         <% end %>
-        <% if can? :manage, gig %>
-        <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
-        <td><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <td><% if can? :edit, :gigs %><%= link_to 'Edit', edit_gig_path(gig) %> <% end %></td>
+        <td><% if can? :destroy, :gigs %><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>

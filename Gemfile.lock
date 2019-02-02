@@ -51,6 +51,14 @@ GEM
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
+<<<<<<< HEAD
+=======
+    bootstrap (4.2.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
+    bootstrap-toggle-rails (2.2.1.0)
+>>>>>>> dev
     builder (3.2.3)
     bulma-rails (0.7.2)
       sass (~> 3.2)
@@ -240,7 +248,12 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+<<<<<<< HEAD
   bulma-rails (~> 0.7.2)
+=======
+  bootstrap
+  bootstrap-toggle-rails
+>>>>>>> dev
   byebug
   cancancan
   capybara (>= 2.15)

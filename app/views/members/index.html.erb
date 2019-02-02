@@ -10,8 +10,8 @@
   <tr>
     <td><%= member.email %></td>
     <td><%= member.full_name %></td>
-    <td><%= member.instrument_list %></td>
-    <td><%= member.phone_number %> </td>
+    <td><%= member.instrument_list.to_sentence %></td>
+    <td><%= member.phone_number %></td>
 <% end %>
 
 </table>
