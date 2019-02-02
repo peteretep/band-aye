@@ -74,6 +74,14 @@ class GigsController < ApplicationController
     end
   end
 
+  def dropout
+    @gig.players.delete(@current_member) if @gig.players.include? @current_member
+    respond_to do |format|
+      format.html { redirect_to @gig, alert: "Awww sorry you can't make it!" }
+      format.json { render :show, status: :ok, location: @gig }
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -84,7 +92,7 @@ class GigsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def gig_params
     params.require(:gig).permit(:title, :where, :when, :band_contact,
-                                :gig_admin_id, :confirmed, :about, :signup,
+                                :gig_admin_id, :confirmed, :about, :signup, :dropout,
                                 :high_payer, :charity)
   end
 end

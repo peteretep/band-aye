@@ -71,7 +71,11 @@
   </div>
 </div>
 
+<% if @gig.players.include? current_member %>
+<%= link_to 'Drop Out', gig_dropout_path, id: "gig_dropout"  %> |
+<% else %>
+<%= link_to 'Sign Up', gig_signup_path, id: "gig_signup"  %> |
+<% end %>
 
-<%= link_to 'Signup', gig_signup_path, id: "gig_signup"  %> |
 <% if can? :edit, :gigs %><%= link_to 'Edit', edit_gig_path(@gig) %> |<% end %>
 <%= link_to 'Back', gigs_path %>
