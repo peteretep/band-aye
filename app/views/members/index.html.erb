@@ -1,17 +1,17 @@
-<h1>Members</h1>
+<h1 class="title">Members</h1>
 
-<table class="table">
+<table class="table is-fullwidth">
 <tr>
   <th>Email</th>
   <th>Name</th>
-  <th>Instrument</th>
-  <th> </th>
+  <th>Instrument(s)</th>
+  <th>Phone</th>
 <% @members.each do |member| %>
   <tr>
     <td><%= member.email %></td>
     <td><%= member.full_name %></td>
-    <td><%=  %></td>    
-    <td><%= member.admin_role %></td>
+    <td><%= member.instrument_list %></td>
+    <td><%= member.phone_number %> </td>
 <% end %>
 
 </table>

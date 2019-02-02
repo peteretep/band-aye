@@ -7,12 +7,12 @@ class GigsController < ApplicationController
   def index
     @gigs = Gig.all
   end
-  
+
   # GET /gigs/1
   # GET /gigs/1.json
   def show
   end
-  
+
   # GET /gigs/new
   def new
     @gig_admins = Member.where(gig_admin: true)
@@ -63,6 +63,7 @@ class GigsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

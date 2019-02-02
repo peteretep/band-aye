@@ -1,23 +1,21 @@
-<div class="row">
-  <div class="col-sm">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-text"> Gigs You've Signed Up To </div>
-  </nav>
-  <table class="table">
+<div class="columns">
+  <div class="column">
+    <div class="title"> Gigs You've Signed Up To </div>
+  <table class="table is-fullwidth">
   <% @gigs_signed_up_to.each do |gig| %>
       <tr><td><%= link_to gig.title, gig %></a></td></tr>
   <% end %>
   </table>
   </div>
 
-  <div class="col-sm">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-text"> Upcoming Gigs </div>
-  </nav>
+  <div class="column">
+    <div class="title"> Upcoming Gigs </div>
 
-  <table class="table">
+  <table class="table is-fullwidth">
   <% @gigs.each do |gig| %>
-      <tr><td><%= link_to gig.title, gig %></a></td></tr>
+      <tr><td><%= link_to gig.title, gig %></a></td>
+        <td><%=  gig.when.to_formatted_s(:short)  %></td>
+      </tr>
   <% end %>
   </table>
   </div>

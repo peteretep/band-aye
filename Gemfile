@@ -40,7 +40,7 @@ gem 'cancancan'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'bootstrap'
+gem "bulma-rails", "~> 0.7.2"
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 

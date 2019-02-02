@@ -15,6 +15,15 @@ class Member < ApplicationRecord
     return 'Gig Admin' if gig_admin?
   end
 
+  def instrument_list
+    insts = []
+    instruments.each do |i|
+      insts << i.name
+    end
+    insts.to_sentence
+  end
+
+
 
   def full_name
     [first_name, last_name].join(' ')
