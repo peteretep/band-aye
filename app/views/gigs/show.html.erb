@@ -1,42 +1,89 @@
-<h1 class="title"><%= @gig.title %></div>
+<h1 class="title"><%= @gig.title %>
+<% if @gig.confirmed %>
+<span class="tag is-success is-large">Confirmed</span>
+<% else %>
+<span class="tag is-info is-large">Unconfirmed</span>
 
-<p>
-  <strong>Where:</strong>
-  <%= @gig.where %>
-</p>
-
-<p>
-  <strong>When:</strong>
-  <%= @gig.when %>
-</p>
-
-<p>
-  <strong>Band contact:</strong>
-  <%= @gig.gig_admin.first_name %>
-</p>
-
-<p>
-  <strong>Event contact:</strong>
-  <%= @gig.event_contact %>
-</p>
-
-<p>
-  <strong>Confirmed:</strong>
-  <%= @gig.confirmed %>
-</p>
-
-<p>
-<strong>Trumpeters:</strong>
-<% @gig.trumpet_players.each do |player| %>
-<%= player.first_name %>
 <% end %>
-</p>
-<p>
-<strong>Tenor Saxes:</strong>
-<% @gig.tenor_sax_players.each do |player| %>
-<%= player.first_name %>
-<% end %>
-</p>
+
+</h1>
+<div class="tile is-ancestor">
+  <div class="tile is-6 is-vertical is-parent">
+    <div class="tile is-child box">
+      <p class="title">Details</p>
+    <p>
+      <strong>Where:</strong>
+      <%= @gig.where %>
+    </p>
+
+    <p>
+      <strong>When:</strong>
+      <%= @gig.when %>
+    </p>
+
+    <p>
+      <strong>Band contact:</strong>
+      <%= @gig.gig_admin.first_name %>
+    </p>
+
+    <p>
+      <strong>Event contact:</strong>
+      <%= @gig.event_contact %>
+    </p>    </div>
+    <div class="tile is-child box">
+      <p class="title">About</p>
+      <p><%= @gig.about %></p>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">Players Signed Up</p>
+      <p>
+      <strong>Drums:</strong>
+      <% @gig.drummers.each do |player| %>
+      <%= player.first_name %>
+      <% end %>
+      </p>
+      <p>
+      <strong>Bass:</strong>
+      <% @gig.bass_players.each do |player| %>
+      <%= player.first_name %>
+      <% end %>
+      </p>
+      <p>
+      <p>
+      <strong>Trombones:</strong>
+      <% @gig.trombone_players.each do |player| %>
+      <%= player.first_name %>
+      <% end %>
+      </p>
+      <strong>Trumpeters:</strong>
+      <% @gig.trumpet_players.each do |player| %>
+      <%= player.first_name %>
+      <% end %>
+      </p>
+      <p>
+      <strong>Tenor Saxes:</strong>
+      <% @gig.tenor_sax_players.each do |player| %>
+      <%= player.first_name %>
+      <% end %>
+      </p>
+      <p>
+      <strong>Alto Saxes:</strong>
+      <% @gig.tenor_sax_players.each do |player| %>
+      <%= player.first_name %>
+      <% end %>
+      </p>
+      <p>
+      <strong>Soprano Saxes:</strong>
+      <% @gig.tenor_sax_players.each do |player| %>
+      <%= player.first_name %>
+      <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+
 
 <%= link_to 'Signup', gig_signup_path, id: "gig_signup"  %> |
 <% if can? :edit, :gigs %><%= link_to 'Edit', edit_gig_path(@gig) %> |<% end %>

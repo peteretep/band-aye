@@ -51,20 +51,13 @@ GEM
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
-<<<<<<< HEAD
-=======
-    bootstrap (4.2.1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
     bootstrap-toggle-rails (2.2.1.0)
->>>>>>> dev
     builder (3.2.3)
     bulma-rails (0.7.2)
       sass (~> 3.2)
     byebug (10.0.2)
     cancancan (2.3.0)
-    capybara (3.12.0)
+    capybara (3.13.2)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -95,14 +88,14 @@ GEM
     diff-lcs (1.3)
     erubi (1.8.0)
     execjs (2.7.0)
-    ffi (1.9.25)
+    ffi (1.10.0)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     gretel (3.0.9)
       rails (>= 3.1.0)
-    i18n (1.5.2)
+    i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jbuilder (2.8.0)
@@ -171,9 +164,9 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.3.0)
-    responders (2.4.0)
-      actionpack (>= 4.2.0, < 5.3)
-      railties (>= 4.2.0, < 5.3)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -248,12 +241,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-<<<<<<< HEAD
-  bulma-rails (~> 0.7.2)
-=======
-  bootstrap
   bootstrap-toggle-rails
->>>>>>> dev
+  bulma-rails (~> 0.7.2)
   byebug
   cancancan
   capybara (>= 2.15)

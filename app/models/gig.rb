@@ -23,6 +23,30 @@ class Gig < ApplicationRecord
     t_saxes
   end
 
+  def bass_players
+    t_saxes = []
+    players.each do |p|
+      t_saxes << p if p.instrument.include? 'Tenor Sax'
+    end
+    t_saxes
+  end
+
+    def tenor_sax_players
+    t_saxes = []
+    players.each do |p|
+      t_saxes << p if p.instrument_list.include? 'Tenor Sax'
+    end
+    t_saxes
+  end
+
+    def tenor_sax_players
+    t_saxes = []
+    players.each do |p|
+      t_saxes << p if p.instrument_list.include? 'Tenor Sax'
+    end
+    t_saxes
+  end
+
   private
 
   def check_gig_admin_has_permission

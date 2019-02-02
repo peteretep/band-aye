@@ -5,7 +5,9 @@ class GigsController < ApplicationController
   # GET /gigs
   # GET /gigs.json
   def index
-    @gigs = Gig.all
+
+    @past_gigs = Gig.where(when: Time.now - 1.year..Time.now )
+    @future_gigs = Gig.where(when: Time.now..Time.now + 2.years)
   end
 
   # GET /gigs/1
@@ -71,6 +73,7 @@ class GigsController < ApplicationController
       format.html { redirect_to @gig, notice: 'Thanks for signing up!' }
       format.json { render :show, status: :ok, location: @gig }
     end
+  end
 
   private
 
@@ -82,6 +85,6 @@ class GigsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def gig_params
     params.require(:gig).permit(:title, :where, :when, :band_contact,
-                                :gig_admin_id, :confirmed, :signup)
+                                :gig_admin_id, :confirmed, :about, :signup)
   end
 end

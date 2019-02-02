@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_19_134308) do
+ActiveRecord::Schema.define(version: 2019_02_02_182534) do
 
   create_table "gigs", force: :cascade do |t|
     t.string "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_134308) do
     t.integer "gig_admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "about"
     t.index ["gig_admin_id"], name: "index_gigs_on_gig_admin_id"
   end
 

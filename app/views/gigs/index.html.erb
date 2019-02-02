@@ -1,4 +1,4 @@
-<h1>Gigs</h1>
+<h1 class="title">Gigs</h1>
 
 <table class="table">
   <thead>
@@ -15,14 +15,60 @@
   </thead>
 
   <tbody>
-    <% @gigs.each do |gig| %>
+    <% @future_gigs.each do |gig| %>
       <tr >
         <th scope="row"><%= link_to gig.title, gig %></th>
         <td><%= gig.where %></td>
         <td><%= gig.when.to_formatted_s(:short) %></td>
         <td><%= gig.gig_admin.first_name %></td>
         <td><%= gig.event_contact %></td>
-        <td><%= gig.confirmed %></td>
+        <% if gig.confirmed %>
+        <td class="is-success">Yes!</td>
+        <% else %>
+        <td class="is-danger">No</td>
+        <% end %>
+        <% if gig.players.include? current_member %>
+        <td class="is-success">Yes!</td>
+        <% else %>
+        <td class="is-danger">No</td>
+        <% end %>
+        <td><% if can? :edit, :gigs %><%= link_to 'Edit', edit_gig_path(gig) %> <% end %></td>
+        <td><% if can? :destroy, :gigs %><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h1 class="title">Past Gigs</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Where</th>
+      <th scope="col">When</th>
+      <th scope="col">Band contact</th>
+      <th scope="col">Event contact</th>
+      <th scope="col">Confirmed</th>
+      <th>Signed Up? </th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @past_gigs.each do |gig| %>
+      <tr >
+        <th scope="row"><%= link_to gig.title, gig %></th>
+        <td><%= gig.where %></td>
+        <td><%= gig.when.to_formatted_s(:short) %></td>
+        <td><%= gig.gig_admin.first_name %></td>
+        <td><%= gig.event_contact %></td>
+        <% if gig.confirmed %>
+        <td class="is-success">Yes!</td>
+        <% else %>
+        <td class="is-danger">No</td>
+        <% end %>
         <% if gig.players.include? current_member %>
         <td class="is-success">Yes!</td>
         <% else %>
