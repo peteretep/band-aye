@@ -4,13 +4,13 @@
 <tr>
   <th>Email</th>
   <th>Name</th>
-  <th>Instrument(s)</th>
+  <th>Instrument</th>
   <th>Phone</th>
 <% @members.each do |member| %>
   <tr>
     <td><%= member.email %></td>
     <td><%= member.full_name %></td>
-    <td><%= member.instrument_list.to_sentence %></td>
+    <td><%= member.instrument.name %></td>
     <td><%= member.phone_number %></td>
 <% end %>
 

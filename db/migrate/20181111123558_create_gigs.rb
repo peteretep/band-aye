@@ -7,6 +7,7 @@ class CreateGigs < ActiveRecord::Migration[5.2]
       t.string :band_contact
       t.string :event_contact
       t.boolean :confirmed
+      t.text :about
       t.belongs_to :gig_admin, class_name: 'Member'
       t.timestamps
     end

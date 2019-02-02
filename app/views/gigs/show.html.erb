@@ -5,6 +5,8 @@
 <span class="tag is-info is-large">Unconfirmed</span>
 
 <% end %>
+<% if @gig.high_payer %><span class="tag is-small">£ $ €</span><% end %>
+<% if @gig.charity %><span class="tag is-small">Charity</span><% end %>
 
 </h1>
 <div class="tile is-ancestor">
@@ -18,7 +20,7 @@
 
     <p>
       <strong>When:</strong>
-      <%= @gig.when %>
+      <%= @gig.when.to_formatted_s(:short) %>
     </p>
 
     <p>
@@ -39,46 +41,31 @@
     <div class="tile is-child box">
       <p class="title">Players Signed Up</p>
       <p>
-      <strong>Drums:</strong>
-      <% @gig.drummers.each do |player| %>
-      <%= player.first_name %>
-      <% end %>
+      <strong>Drums: <span class="tag"><%= @gig.players.drummers.count %> </span></strong>
+      <%= @gig.players.drummers.map { |m| m.first_name}.to_sentence %>
       </p>
       <p>
-      <strong>Bass:</strong>
-      <% @gig.bass_players.each do |player| %>
-      <%= player.first_name %>
-      <% end %>
+      <strong>Bass: <span class="tag"><%= @gig.players.basses.count %> </span></strong>
+      <%= @gig.players.basses.map { |m| m.first_name}.to_sentence %>
       </p>
       <p>
-      <p>
-      <strong>Trombones:</strong>
-      <% @gig.trombone_players.each do |player| %>
-      <%= player.first_name %>
-      <% end %>
+      <strong>Trombones: <span class="tag"><%= @gig.players.boners.count %> </span></strong>
+      <%= @gig.players.boners.map { |m| m.first_name}.to_sentence %>
       </p>
-      <strong>Trumpeters:</strong>
-      <% @gig.trumpet_players.each do |player| %>
-      <%= player.first_name %>
-      <% end %>
+      <strong>Trumpeters: <span class="tag"><%= @gig.players.trumpeters.count %> </span></strong>
+      <%= @gig.players.trumpeters.map { |m| m.first_name}.to_sentence %>
       </p>
       <p>
-      <strong>Tenor Saxes:</strong>
-      <% @gig.tenor_sax_players.each do |player| %>
-      <%= player.first_name %>
-      <% end %>
+      <strong>Tenor Saxes: <span class="tag"><%= @gig.players.tenor_saxes.count %> </span></strong>
+      <%= @gig.players.tenor_saxes.map { |m| m.first_name}.to_sentence %>
       </p>
       <p>
-      <strong>Alto Saxes:</strong>
-      <% @gig.tenor_sax_players.each do |player| %>
-      <%= player.first_name %>
-      <% end %>
+      <strong>Alto Saxes: <span class="tag"><%= @gig.players.alto_saxes.count %> </span></strong>
+      <%= @gig.players.alto_saxes.map { |m| m.first_name}.to_sentence %>
       </p>
       <p>
-      <strong>Soprano Saxes:</strong>
-      <% @gig.tenor_sax_players.each do |player| %>
-      <%= player.first_name %>
-      <% end %>
+      <strong>Soprano Saxes: <span class="tag"><%= @gig.players.soprano_saxes.count %> </span></strong>
+      <%= @gig.players.soprano_saxes.map { |m| m.first_name}.to_sentence %>
       </p>
     </div>
   </div>

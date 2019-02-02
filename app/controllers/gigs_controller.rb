@@ -5,9 +5,8 @@ class GigsController < ApplicationController
   # GET /gigs
   # GET /gigs.json
   def index
-
-    @past_gigs = Gig.where(when: Time.now - 1.year..Time.now )
-    @future_gigs = Gig.where(when: Time.now..Time.now + 2.years)
+    @past_gigs = Gig.past
+    @future_gigs = Gig.future
   end
 
   # GET /gigs/1
@@ -85,6 +84,7 @@ class GigsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def gig_params
     params.require(:gig).permit(:title, :where, :when, :band_contact,
-                                :gig_admin_id, :confirmed, :about, :signup)
+                                :gig_admin_id, :confirmed, :about, :signup,
+                                :high_payer, :charity)
   end
 end
