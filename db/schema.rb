@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_02_02_223543) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "gigs", force: :cascade do |t|
     t.string "title"
     t.string "where"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_02_02_223543) do
     t.string "event_contact"
     t.boolean "confirmed"
     t.text "about"
-    t.integer "gig_admin_id"
+    t.bigint "gig_admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "high_payer"
@@ -29,8 +32,8 @@ ActiveRecord::Schema.define(version: 2019_02_02_223543) do
   end
 
   create_table "gigs_members", id: false, force: :cascade do |t|
-    t.integer "gig_id", null: false
-    t.integer "member_id", null: false
+    t.bigint "gig_id", null: false
+    t.bigint "member_id", null: false
     t.index ["gig_id", "member_id"], name: "index_gigs_members_on_gig_id_and_member_id"
   end
 
@@ -55,10 +58,11 @@ ActiveRecord::Schema.define(version: 2019_02_02_223543) do
     t.boolean "admin", default: false
     t.boolean "gig_admin", default: false
     t.boolean "ordinary_member", default: true
-    t.integer "instrument_id"
+    t.bigint "instrument_id"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["instrument_id"], name: "index_members_on_instrument_id"
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "members", "instruments"
 end
