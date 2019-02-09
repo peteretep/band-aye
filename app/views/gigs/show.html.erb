@@ -32,12 +32,8 @@
       <strong>Event contact:</strong>
       <%= @gig.event_contact %>
     </p>    </div>
-    <div class="tile is-child box">
-      <p class="title">About</p>
-      <p><%= @gig.about %></p>
-    </div>
-  </div>
-  <div class="tile is-parent">
+
+
     <div class="tile is-child box">
       <p class="title">Players Signed Up</p>
       <p>
@@ -67,6 +63,14 @@
       <strong>Soprano Saxes: <span class="tag"><%= @gig.players.soprano_saxes.count %> </span></strong>
       <%= @gig.players.soprano_saxes.map { |m| m.first_name}.to_sentence %>
       </p>
+    </div>
+  </div>
+
+
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">About</p>
+      <p><%= @gig.about %></p>
     </div>
   </div>
 </div>
