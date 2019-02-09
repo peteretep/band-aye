@@ -157,6 +157,7 @@ Member.create(
   password: 'brassaye',
   password_confirmation: 'brassaye',
   first_name: 'Joe',
+  gig_Admin: true,
   instrument: Instrument.find(6))
 Member.create(
   email: 'alberto@brass.aye',

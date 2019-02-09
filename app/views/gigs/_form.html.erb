@@ -11,51 +11,129 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+<div class="tile is-ancestor">
+  <div class="tile is-6 is-vertical is-parent">
+    <div class="tile is-child box">
 
-  <div class="field">
-    <%= form.label :where %>
-    <%= form.text_field :where %>
-  </div>
+      <p class="title">Details</p>
 
-  <div class="field">
-    <%= form.label :when %>
-    <%= form.datetime_select :when %>
-  </div>
+      <div class="field is-horizontal">
+        <div class="field-label">
+        <%= form.label :title, class: 'label' %>
+        </div>
+        <div class="field-body">
+          <div calss="field">
+            <div class="control">
+              <%= form.text_field :title, class: 'input' %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :gig_admin %>
-    <% options = options_from_collection_for_select(@gig_admins, 'id', 'first_name') %>
-    <%= form.select :gig_admin_id,  options %>
-  </div>
+      <div class="field is-horizontal">
+        <div class="field-label">
+        <%= form.label :where, class: 'label' %>
+        </div>
+        <div class="field-body">
+          <div calss="field">
+            <div class="control">
+              <%= form.text_field :where, class: 'input' %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :event_contact %>
-    <%= form.text_field :event_contact %>
-  </div>
+      <div class="field is-horizontal">
+        <div class="field-label">
+        <%= form.label :when, class: 'label' %>
+        </div>
+        <div class="field-body">
+          <div calss="field">
+            <div class="control">
+              <%= form.datetime_select :when, class: 'input' %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :high_payer %>
-    <%= form.check_box :high_payer %>
-  </div>
- <div class="field">
-    <%= form.label :charity %>
-    <%= form.check_box :charity %>
-  </div>
-  <div class="field">
-    <%= form.label :confirmed %>
-    <%= form.check_box :confirmed %>
-  </div>
+      <div class="field is-horizontal">
+        <div class="field-label">
+        <%= form.label :gig_admin, class: 'label' %>
+        </div>
+        <div class="field-body">
+          <div calss="field">
+            <div class="control">
+              <% options = options_from_collection_for_select(@gig_admins, 'id', 'first_name') %>
+              <%= form.select :gig_admin_id,  options, {}, { class: 'select is-warning' } %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :about %>
-    <%= form.text_area :about %>
-  </div>
+      <div class="field is-horizontal">
+        <div class="field-label">
+        <%= form.label :event_contact, class: 'label' %>
+        </div>
+        <div class="field-body">
+          <div calss="field">
+            <div class="control">
+              <%= form.text_field :event_contact, class: 'input' %>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="field is-horizontal">
+        <div class="field-label">
+        <%= form.label :high_payer, class: 'checkbox' %>
+        </div>
+        <div class="field-body">
+          <div calss="field">
+            <div class="control">
+              <%= form.check_box :high_payer, class: 'checkbox' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label">
+        <%= form.label :charity, class: 'checkbox' %>
+        </div>
+        <div class="field-body">
+          <div calss="field">
+            <div class="control">
+              <%= form.check_box :charity, class: 'checkbox' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label">
+        <%= form.label :confirmed, class: 'checkbox' %>
+        </div>
+        <div class="field-body">
+          <div calss="field">
+            <div class="control">
+              <%= form.check_box :confrimed, class: 'checkbox' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">About</p>
+       <div class="field">
+        <%= form.text_area :about, class: 'textarea', rows: '12' %>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit   class: 'button' %>
   </div>
+
 <% end %>
