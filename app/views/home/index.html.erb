@@ -15,8 +15,7 @@
   <% @gigs.each do |gig| %>
       <tr><td><%= link_to gig.title, gig %></a></td>
         <td><%=  gig.when.to_formatted_s(:short)  %></td>
-      </tr>
+        <td><%= gig.when.strftime('%A') %></td>
   <% end %>
-  </table>
   </div>
 </div>
