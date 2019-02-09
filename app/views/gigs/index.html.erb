@@ -62,6 +62,7 @@
         <th scope="row"><%= link_to gig.title, gig %></th>
         <td><%= gig.where %></td>
         <td><%= gig.when.to_formatted_s(:short) %></td>
+        <td><%= gig.when.strftime('%A') %></td>
         <td><%= gig.gig_admin.first_name %></td>
         <td><%= gig.event_contact %></td>
         <% if gig.confirmed %>
