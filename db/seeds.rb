@@ -33,8 +33,8 @@ Member.create(email: 'lucy@brass.aye', password: 'brassaye',
               gig_admin: false, admin: false, instrument: Instrument.find(1))
 
 # Alto saxes
-Member.create(email: 'ruth@gmail.com', password: 'topsecret',
-              password_confirmation: 'topsecret',
+Member.create(email: 'ruth@brass.aye', password: 'brassaye',
+              password_confirmation: 'brassaye',
               first_name: 'Ruth', last_name: 'Cape',
               gig_admin: true, admin: false, instrument: Instrument.find(2))
 Member.create(
@@ -157,7 +157,7 @@ Member.create(
   password: 'brassaye',
   password_confirmation: 'brassaye',
   first_name: 'Joe',
-  gig_Admin: true,
+  gig_admin: true,
   instrument: Instrument.find(6))
 Member.create(
   email: 'alberto@brass.aye',

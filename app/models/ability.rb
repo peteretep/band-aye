@@ -6,7 +6,7 @@ class Ability
     if member.admin?
       can :manage, :all
     elsif member.gig_admin?
-      can :manage, :gigs
+      can :manage, :all
     else
       can :signup, Gig
       can :read, :all
