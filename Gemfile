@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 6.0.0.beta1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'mini_racer', platforms: :ruby
-
+gem 'webpacker'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'devise'
-gem 'cancancan'
+gem 'cancancan', github:'CanCanCommunity/cancancan', branch: 'feature/3.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -42,10 +42,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "bulma-rails", "~> 0.7.2"
 gem 'jquery-rails'
 gem 'font-awesome-rails'
-
-gem 'gretel'
-
-gem 'bootstrap-toggle-rails'
 
 gem 'pg'
 group :development, :test do

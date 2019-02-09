@@ -3,6 +3,8 @@ class Gig < ApplicationRecord
   has_and_belongs_to_many :members
   validate :check_gig_admin_has_permission
 
+  has_rich_text :about_r
+
   scope :past, -> { where(when: Time.now - 1.year..Time.now ) }
   scope :future, -> { where(when: Time.now..Time.now + 2.years) }
 

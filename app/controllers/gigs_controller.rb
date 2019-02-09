@@ -1,6 +1,6 @@
 class GigsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_gig, only: [:show, :edit, :update, :destroy, :signup]
+  before_action :set_gig, only: [:show, :edit, :update, :destroy, :signup, :dropout]
 
   # GET /gigs
   # GET /gigs.json
@@ -92,7 +92,7 @@ class GigsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def gig_params
     params.require(:gig).permit(:title, :where, :when, :band_contact, :event_contact,
-                                :gig_admin_id, :confirmed, :about, :signup, :dropout,
+                                :gig_admin_id, :confirmed, :about, :about_r, :signup, :dropout,
                                 :high_payer, :charity)
   end
 end
