@@ -1,6 +1,6 @@
 class GigsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_gig, only: [:show, :edit, :update, :destroy, :signup]
+  before_action :set_gig, only: [:show, :edit, :update, :destroy, :signup, :dropout]
 
   # GET /gigs
   # GET /gigs.json

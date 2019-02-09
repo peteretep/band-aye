@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'devise'
-gem 'cancancan'
+gem 'cancancan', github:'CanCanCommunity/cancancan', branch: 'feature/3.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -42,10 +42,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "bulma-rails", "~> 0.7.2"
 gem 'jquery-rails'
 gem 'font-awesome-rails'
-
-gem 'gretel'
-
-gem 'bootstrap-toggle-rails'
 
 gem 'pg'
 group :development, :test do

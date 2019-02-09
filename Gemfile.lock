@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/CanCanCommunity/cancancan.git
+  revision: 91ef8f72d1be3672590312350d1018529b38ba54
+  branch: feature/3.0.0
+  specs:
+    cancancan (2.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -62,12 +69,10 @@ GEM
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
-    bootstrap-toggle-rails (2.2.1.0)
     builder (3.2.3)
     bulma-rails (0.7.2)
       sass (~> 3.2)
     byebug (10.0.2)
-    cancancan (2.3.0)
     capybara (3.13.2)
       addressable
       mini_mime (>= 0.1.3)
@@ -104,8 +109,6 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    gretel (3.0.9)
-      rails (>= 3.1.0)
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -260,16 +263,14 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bootstrap-toggle-rails
   bulma-rails (~> 0.7.2)
   byebug
-  cancancan
+  cancancan!
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
   font-awesome-rails
-  gretel
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
