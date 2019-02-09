@@ -9,6 +9,7 @@ class Ability
       can :manage, :all
     else
       can :signup, Gig
+      can :dropout, Gig
       can :read, :all
     end
     # Define abilities for the passed in user here. For example:

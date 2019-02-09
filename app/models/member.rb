@@ -18,7 +18,7 @@ class Member < ApplicationRecord
   scope :tenor_saxes, -> { joins(:instrument).where('instruments.name = ?', 'Tenor Sax')}
   scope :bari_saxes, -> { joins(:instrument).where('instruments.name = ?', 'Baritone Sax')}
 
-  scope :basses, -> { joins(:instrument).where('instruments.family = ?', 'basses')}
+  scope :basses, -> { joins(:instrument).where('instruments.family = ?', 'bass')}
   scope :drummers, -> { joins(:instrument).where('instruments.family = ?', 'percussion')}
   scope :saxes, -> { joins(:instrument).where('instruments.family = ?', 'saxophone')}
   scope :horms, -> { joins(:instrument).where('instruments.family = ?', 'horn')}
