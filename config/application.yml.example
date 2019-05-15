@@ -1,0 +1,12 @@
+defaults: &defaults
+  application:
+    title: Band aye?
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
