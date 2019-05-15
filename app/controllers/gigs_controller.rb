@@ -93,6 +93,6 @@ class GigsController < ApplicationController
   def gig_params
     params.require(:gig).permit(:title, :where, :when, :band_contact, :event_contact,
                                 :gig_admin_id, :confirmed, :about, :about_r, :signup, :dropout,
-                                :high_payer, :charity)
+                                :high_payer, :charity, :confirmed)
   end
 end
