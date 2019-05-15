@@ -34,4 +34,4 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
-database.yml
+config/database.yml
