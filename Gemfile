@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.6.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0.beta1'
@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'settingslogic'
 
-gem 'devise'
+gem 'devise', ">= 4.6.0"
 gem 'cancancan', github:'CanCanCommunity/cancancan', branch: 'feature/3.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
